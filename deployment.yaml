@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: harness-demo
+  template:
+    metadata:
+      labels:
+        app: harness-demo
+    spec:
+      containers:
+      - name: app
+        image: docker.io/yourname/harness-demo:latest
+        ports:
+        - containerPort: 3000
